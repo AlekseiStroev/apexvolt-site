@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ApexVolt Motors</title>
+  <meta name="description" content="ApexVolt Motors — electric off-road motorcycles. ApexVolt V1 Neon Series." />
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-2: #0a0a0a;
+      --panel: rgba(255,255,255,.035);
+      --panel-2: rgba(255,255,255,.05);
+      --soft: #121212;
+      --text: #f5f7f4;
+      --muted: #a3a8a0;
+      --line: rgba(190,255,52,.14);
+      --line-2: rgba(255,255,255,.08);
+      --neon: #b7ff2d;
+      --neon-2: #86ff00;
+      --radius: 28px;
+      --shadow: 0 30px 80px rgba(0,0,0,.42);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(183,255,45,.12), transparent 24%),
+        radial-gradient(circle at 20% 10%, rgba(183,255,45,.05), transparent 28%),
+        radial-gradient(circle at bottom center, rgba(183,255,45,.05), transparent 30%),
+        linear-gradient(180deg, #070707 0%, #050505 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5,5,5,.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 0 18px rgba(183,255,45,.16);
+    }
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .brand-copy strong {
+      letter-spacing: .08em;
+      font-size: .95rem;
+      white-space: nowrap;
+    }
+    .brand-copy span {
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: #0b0b0b;
+      background: linear-gradient(135deg, var(--neon), var(--neon-2));
+      box-shadow: 0 0 30px rgba(183,255,45,.24);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 66px 0 34px;
+    }
+    .hero-shell {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--neon);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 800;
+      font-size: .78rem;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--neon), transparent);
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(3rem, 8vw, 6.3rem);
+      line-height: .93;
+      letter-spacing: -.05em;
+    }
+    h1 .accent {
+      color: var(--neon);
+      text-shadow: 0 0 24px rgba(183,255,45,.18);
+    }
+    .lead {
+      margin: 0 0 26px;
+      max-width: 690px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.06rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .btn {
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--neon), var(--neon-2));
+      color: #080808;
+      border-color: transparent;
+      box-shadow: 0 0 32px rgba(183,255,45,.24);
+    }
+    .hero-card,
+    .panel,
+    .story-card,
+    .contact-card,
+    .series-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border: 1px solid rgba(255,255,255,.07);
+      box-shadow: var(--shadow);
+    }
+    .hero-card::before,
+    .panel::before,
+    .story-card::before,
+    .contact-card::before,
+    .series-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(183,255,45,.08), transparent 28%, transparent 72%, rgba(255,255,255,.03));
+    }
+    .hero-card img,
+    .series-card img { display: block; width: 100%; }
+    .hero-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.58);
+      border: 1px solid rgba(183,255,45,.22);
+      color: var(--neon);
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      backdrop-filter: blur(10px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .stat strong {
+      display: block;
+      color: var(--neon);
+      font-size: 1.42rem;
+      margin-bottom: 6px;
+    }
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.45;
+    }
+
+    section { padding: 28px 0 42px; }
+    .section-head { margin-bottom: 22px; }
+    .label {
+      color: var(--neon);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .76rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      letter-spacing: -.03em;
+    }
+    .section-sub {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 760px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .color-pill {
+      border-radius: 18px;
+      padding: 18px 10px;
+      text-align: center;
+      font-weight: 800;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .spec-layout,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .panel,
+    .contact-card,
+    .story-card {
+      padding: 24px;
+    }
+    .spec-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .spec-item {
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .spec-item .k {
+      display: block;
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 8px;
+    }
+    .spec-item .v {
+      display: block;
+      font-weight: 800;
+      font-size: 1.04rem;
+      line-height: 1.45;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .story-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+    }
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .contact-lines {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+    .contact-lines strong { color: var(--text); }
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .contact-chip {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      font-weight: 700;
+    }
+    .qr-box {
+      background: #fff;
+      border-radius: 22px;
+      padding: 14px;
+      max-width: 330px;
+      margin: 0 auto 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    .qr-box img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+    }
+    .wechat-caption {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      text-align: center;
+    }
+    .wechat-title {
+      margin: 0 0 8px;
+      text-align: center;
+      font-size: 1.45rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: #8f948c;
+      font-size: .92rem;
+      padding: 26px 0 110px;
+      margin-top: 10px;
+    }
+
+    .mobile-bar {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 80;
+      display: none;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 20px;
+      background: rgba(10,10,10,.86);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    }
+    .mobile-bar a {
+      flex: 1;
+      text-align: center;
+      padding: 13px 12px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: .95rem;
+    }
+    .mobile-bar .ghost {
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+    }
+    .mobile-bar .solid {
+      background: linear-gradient(135deg, var(--neon), var(--neon-2));
+      color: #0a0a0a;
+      box-shadow: 0 0 24px rgba(183,255,45,.22);
+    }
+
+    @media (max-width: 980px) {
+      .hero-shell,
+      .spec-layout,
+      .contact-grid,
+      .story-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .color-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 20px, 1180px); }
+      .nav-inner { padding: 12px 0; }
+      .brand img { width: 38px; height: 38px; }
+      .brand-copy strong { font-size: .88rem; }
+      .brand-copy span { font-size: .68rem; }
+      .nav-cta { display: none; }
+      .hero { padding: 26px 0 16px; }
+      h1 { line-height: .97; }
+      .lead { font-size: .98rem; margin-bottom: 20px; }
+      .hero-actions { gap: 10px; margin-bottom: 18px; }
+      .btn { width: 100%; text-align: center; }
+      .stats,
+      .spec-list,
+      .color-grid { grid-template-columns: 1fr; }
+      .panel,
+      .contact-card,
+      .story-card { padding: 20px; }
+      .section-title { font-size: 2rem; }
+      .hero-badge { left: 14px; top: 14px; font-size: .78rem; padding: 8px 11px; }
+      .mobile-bar { display: flex; }
+      footer { padding-bottom: 108px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <img src="assets/avatar.png" alt="ApexVolt logo" />
+        <div class="brand-copy">
+          <strong>APEXVOLT MOTORS</strong>
+          <span>Electric off-road motorcycles</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#series">Neon Series</a>
+        <a href="#specs">Specs</a>
+        <a href="#about">Brand</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="#contact">Connect on WeChat</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-shell">
+        <div>
+          <div class="eyebrow">Pre-launch brand platform</div>
+          <h1>ApexVolt V1 <span class="accent">Neon Series</span></h1>
+          <p class="lead">
+            A premium launch page for a new electric dirt bike brand. Matte black platform, neon identity, and an OEM-ready concept built for supplier outreach, trade-show meetings, and early brand positioning in the U.S. market.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#series">Explore the lineup</a>
+            <a class="btn" href="#contact">Scan WeChat QR</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>72V</strong><span>Battery platform</span></div>
+            <div class="stat"><strong>8000W</strong><span>Nominal power</span></div>
+            <div class="stat"><strong>90 km/h</strong><span>Target top speed</span></div>
+            <div class="stat"><strong>6 neon colors</strong><span>One black base platform</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-badge">ApexVolt V1 render</div>
+          <img src="assets/green-bike.png" alt="ApexVolt V1 render" />
+        </div>
+      </div>
+    </section>
+
+    <section id="series">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Signature concept</div>
+          <h2 class="section-title">Choose your neon</h2>
+          <p class="section-sub">
+            One matte black bike. Multiple identities. The Neon Series turns a single platform into a full visual lineup and gives ApexVolt a clear, memorable signature before production begins.
+          </p>
+        </div>
+        <div class="series-card">
+          <img src="assets/neon-series.png" alt="ApexVolt Neon Series lineup" />
+        </div>
+        <div class="color-grid">
+          <div class="color-pill">Neon Green</div>
+          <div class="color-pill">Neon Blue</div>
+          <div class="color-pill">Neon Pink</div>
+          <div class="color-pill">Neon Red</div>
+          <div class="color-pill">Neon Yellow</div>
+          <div class="color-pill">Neon Orange</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specs">
+      <div class="wrap spec-layout">
+        <div class="panel">
+          <div class="label">Product concept</div>
+          <h2 class="section-title">ApexVolt V1 specs</h2>
+          <p class="section-sub">
+            Starter specification for supplier conversations around a Talaria-style electric dirt bike platform, adapted to ApexVolt branding and early product-market positioning.
+          </p>
+          <div class="spec-list">
+            <div class="spec-item"><span class="k">Battery</span><span class="v">72V 40Ah lithium-ion</span></div>
+            <div class="spec-item"><span class="k">Motor</span><span class="v">Mid-drive brushless</span></div>
+            <div class="spec-item"><span class="k">Nominal power</span><span class="v">8000W</span></div>
+            <div class="spec-item"><span class="k">Peak output</span><span class="v">Up to 12kW</span></div>
+            <div class="spec-item"><span class="k">Top speed</span><span class="v">≈ 90 km/h</span></div>
+            <div class="spec-item"><span class="k">Range</span><span class="v">80–100 km eco</span></div>
+            <div class="spec-item"><span class="k">Wheel setup</span><span class="v">19&quot; front / 18&quot; rear</span></div>
+            <div class="spec-item"><span class="k">Brakes</span><span class="v">Hydraulic disc</span></div>
+            <div class="spec-item"><span class="k">Suspension</span><span class="v">USD fork + mono shock</span></div>
+            <div class="spec-item"><span class="k">Charge time</span><span class="v">≈ 2.5 hours (20–80%)</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-badge">Teaser visual</div>
+          <img src="assets/teaser.png" alt="ApexVolt teaser" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Brand direction</div>
+          <h2 class="section-title">What makes ApexVolt different</h2>
+          <p class="section-sub">
+            The strategy is simple: lead with design, keep production efficient, and create a brand identity strong enough to stand out before the first large shipment arrives.
+          </p>
+        </div>
+        <div class="story-grid">
+          <div class="story-card">
+            <h3>Black base, neon accents</h3>
+            <p>The matte black body keeps production simple. Neon decal kits create multiple SKUs without changing the platform, helping ApexVolt launch wider with lower complexity.</p>
+          </div>
+          <div class="story-card">
+            <h3>Built for supplier outreach</h3>
+            <p>Logo, social identity, product naming, QR-based networking, and trade-show materials are already in place for factory meetings and OEM sourcing discussions.</p>
+          </div>
+          <div class="story-card">
+            <h3>Premium mobile-first presence</h3>
+            <p>This version of the site is optimized for phone viewing so it works cleanly when you share it from Instagram, WeChat, or directly during supplier meetings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-card">
+          <div class="label">Contact</div>
+          <h2 class="section-title">Connect with ApexVolt</h2>
+          <p class="section-sub">Built for supplier meetings, trade-show networking, and early partnership conversations.</p>
+          <div class="contact-lines">
+            <div><strong>Founder:</strong> Aleksei Stroev</div>
+            <div><strong>Brand:</strong> ApexVolt Motors</div>
+            <div><strong>Base:</strong> United States</div>
+            <div><strong>Website:</strong> apexvoltmotors.com</div>
+            <div><strong>Instagram:</strong> @apexvoltmotors</div>
+            <div><strong>Status:</strong> Pre-launch / OEM sourcing</div>
+            <div><strong>WeChat name:</strong> Aleksei Stroev</div>
+          </div>
+          <div class="contact-actions">
+            <div class="contact-chip">Trade-show ready</div>
+            <div class="contact-chip">OEM branding focus</div>
+            <div class="contact-chip">China supplier outreach</div>
+          </div>
+        </div>
+        <div class="contact-card" style="text-align:center;">
+          <div class="label">WeChat</div>
+          <div class="qr-box">
+            <img src="assets/wechat-qr.jpeg" alt="WeChat QR code" />
+          </div>
+          <h3 class="wechat-title">WeChat — Scan to connect</h3>
+          <p class="wechat-caption">Use this QR for factory introductions, post-exhibition follow-up, and direct supplier communication in China.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© ApexVolt Motors — premium pre-launch landing page for brand development and supplier outreach.</div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a class="ghost" href="#series">Lineup</a>
+    <a class="solid" href="#contact">WeChat QR</a>
+  </div>
+</body>
+</html>
