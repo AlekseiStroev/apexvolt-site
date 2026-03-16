@@ -734,10 +734,14 @@ yellow: "rgba(255,227,74,.35)",
 orange: "rgba(255,154,47,.35)"
 };
 wrap.style.background =
-"radial-gradient(ellipse at bottom, " +
-(floorGlow[color] || "rgba(183,255,45,.35)") +
-" 0%, rgba(0,0,0,0) 65%)";
-  if (!bike) return;
+if (floor) {
+  floor.style.background =
+    "radial-gradient(ellipse at center, " +
+    (floorGlow[color] || "rgba(183,255,45,.30)") +
+    " 0%, " +
+    (floorGlow[color] || "rgba(183,255,45,.30)").replace(".30", ".10") +
+    " 35%, rgba(0,0,0,0) 72%)";
+}
 
   const files = {
     green: "green-bike.png",
