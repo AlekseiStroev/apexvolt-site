@@ -729,21 +729,19 @@ if (el) {
   const wrap = document.getElementById("bikeWrap");
   const floor = document.getElementById("bikeFloorGlow");
 const floorGlow = {
-green: "rgba(183,255,45,.35)",
-blue: "rgba(72,184,255,.35)",
-pink: "rgba(255,92,204,.35)",
-red: "rgba(255,79,79,.35)",
-yellow: "rgba(255,227,74,.35)",
-orange: "rgba(255,154,47,.35)"
+  green: "rgba(183,255,45,.38)",
+  blue: "rgba(72,184,255,.38)",
+  pink: "rgba(255,92,204,.38)",
+  red: "rgba(255,79,79,.38)",
+  yellow: "rgba(255,227,74,.38)",
+  orange: "rgba(255,154,47,.38)"
 };
-wrap.style.background =
+
 if (floor) {
+  const c = floorGlow[color] || "rgba(183,255,45,.38)";
   floor.style.background =
-    "radial-gradient(ellipse at center, " +
-    (floorGlow[color] || "rgba(183,255,45,.30)") +
-    " 0%, " +
-    (floorGlow[color] || "rgba(183,255,45,.30)").replace(".30", ".10") +
-    " 35%, rgba(0,0,0,0) 72%)";
+    "radial-gradient(ellipse at center, " + c + " 0%, " +
+    c.replace(".38", ".14") + " 38%, rgba(0,0,0,0) 75%)";
 }
 
   const files = {
