@@ -520,16 +520,35 @@ function changeBike(color){
   const bike = document.getElementById('bikeImage');
   if (!bike) return;
 
-  const files = {
-    green: 'green-bike.png',
-    blue: 'blue-bike.PNG',
-    pink: 'pink-bike.PNG',
-    red: 'red-bike.PNG',
-    yellow: 'yellow-bike.PNG',
-    orange: 'orange-bike.PNG'
-  };
+  if(color==="green"){
+    bike.style.filter = "hue-rotate(0deg) saturate(1.1)";
+    bike.style.boxShadow = "0 0 40px rgba(183,255,45,.35)";
+  }
 
-  bike.src = files[color] || 'green-bike.png';
+  if(color==="blue"){
+    bike.style.filter = "hue-rotate(140deg) saturate(1.15)";
+    bike.style.boxShadow = "0 0 40px rgba(72,184,255,.35)";
+  }
+
+  if(color==="pink"){
+    bike.style.filter = "hue-rotate(260deg) saturate(1.2)";
+    bike.style.boxShadow = "0 0 40px rgba(255,92,204,.35)";
+  }
+
+  if(color==="red"){
+    bike.style.filter = "hue-rotate(310deg) saturate(1.15)";
+    bike.style.boxShadow = "0 0 40px rgba(255,79,79,.35)";
+  }
+
+  if(color==="yellow"){
+    bike.style.filter = "hue-rotate(25deg) saturate(1.15) brightness(1.03)";
+    bike.style.boxShadow = "0 0 40px rgba(255,227,74,.35)";
+  }
+
+  if(color==="orange"){
+    bike.style.filter = "hue-rotate(345deg) saturate(1.2)";
+    bike.style.boxShadow = "0 0 40px rgba(255,154,47,.35)";
+  }
 }
 </script>
 </body>
