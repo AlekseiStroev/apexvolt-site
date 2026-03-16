@@ -562,20 +562,22 @@ transition:all .25s ease;
     </p>
 
     <div id="bikeWrap" style="
+  position:relative;
   display:flex;
   justify-content:center;
   align-items:center;
   padding:20px;
   border-radius:28px;
-  background:radial-gradient(circle at center, rgba(183,255,45,.12), rgba(0,0,0,0) 60%);
   transition:all .35s ease;
-  animation:glowPulse 2.4s ease-in-out infinite;
 ">
+  <div id="bikeFloorGlow"></div>
   <img id="bikeImage" src="green-bike.png" alt="ApexVolt Neon Series" style="
+    position:relative;
+    z-index:2;
     max-width:100%;
     border-radius:22px;
     box-shadow:0 0 40px rgba(183,255,45,.35);
-    transition:all .35s ease;
+    transition:all .45s ease;
   ">
 </div>
 
