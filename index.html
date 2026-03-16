@@ -47,21 +47,32 @@ text-shadow:
 100%{background-position:400%}
 }
 .neon-title{
-font-size:48px;
-font-weight:700;
+font-size:52px;
+font-weight:800;
+letter-spacing:1px;
+text-align:center;
+
 background: linear-gradient(
 90deg,
-#7fff2d,
-#48b8ff,
-#ff5ccc,
-#ff4f4f,
-#ffe34a,
-#ff9a2f
+#7fff2d 0%,
+#48b8ff 20%,
+#ff5ccc 40%,
+#ff4f4f 60%,
+#ffe34a 80%,
+#ff9a2f 100%
 );
+
+background-size:300%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-background-size:300%;
-animation: neonMove 6s linear infinite;
+
+animation:
+neonGradient 6s linear infinite,
+neonPulse 2.2s ease-in-out infinite;
+
+filter: drop-shadow(0 0 6px rgba(127,255,45,.35))
+drop-shadow(0 0 10px rgba(72,184,255,.25))
+drop-shadow(0 0 14px rgba(255,92,204,.22));
 }
 
 @keyframes neonMove{
