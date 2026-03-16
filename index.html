@@ -12,6 +12,29 @@
       background:#080808;
       color:white;
     }
+    #bikeFlash{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:70%;
+height:70%;
+border-radius:50%;
+opacity:0;
+pointer-events:none;
+z-index:1;
+filter:blur(28px);
+transition:opacity .22s ease;
+}
+
+.flash-on{
+opacity:.55 !important;
+}
+
+#bikeImage.switching{
+opacity:.35;
+transform:scale(.985);
+}
     #bikeFloorGlow{
 position:absolute;
 left:50%;
