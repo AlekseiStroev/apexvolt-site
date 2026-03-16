@@ -512,7 +512,19 @@ Neon Orange
 
 <script>
 function changeBike(color){
-  alert(color);
+  const bike = document.getElementById('bikeImage');
+  if (!bike) return;
+
+  const files = {
+    green: 'green-bike.png',
+    blue: 'blue-bike.PNG',
+    pink: 'pink-bike.PNG',
+    red: 'red-bike.PNG',
+    yellow: 'yellow-bike.PNG',
+    orange: 'orange-bike.PNG'
+  };
+
+  bike.src = files[color] || 'green-bike.png';
 }
 </script>
 </body>
