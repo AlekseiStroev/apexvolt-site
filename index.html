@@ -536,45 +536,36 @@ Neon Orange
 
 <script>
 function changeBike(color){
-  const bike = document.getElementById('bikeImage');
-  const wrap = document.getElementById('bikeWrap');
-  if (!bike || !wrap) return;
 
-  if(color==="green"){
-    bike.style.filter = "hue-rotate(0deg) saturate(1.25) brightness(1.05)";
-    bike.style.boxShadow = "0 0 40px rgba(183,255,45,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(183,255,45,.16), rgba(0,0,0,0) 60%)";
-  }
+  const bike = document.getElementById("bikeImage");
+  const wrap = document.getElementById("bikeWrap");
 
-  if(color==="blue"){
-    bike.style.filter = "hue-rotate(160deg) saturate(1.3)";
-    bike.style.boxShadow = "0 0 40px rgba(72,184,255,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(72,184,255,.18), rgba(0,0,0,0) 60%)";
-  }
+  const files = {
+    green: "green-bike.png",
+    blue: "blue-bike.PNG",
+    pink: "pink-bike.PNG",
+    red: "red-bike.PNG",
+    yellow: "yellow-bike.PNG",
+    orange: "orange-bike.PNG"
+  };
 
-  if(color==="pink"){
-    bike.style.filter = "hue-rotate(280deg) saturate(1.35)";
-    bike.style.boxShadow = "0 0 40px rgba(255,92,204,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(255,92,204,.18), rgba(0,0,0,0) 60%)";
-  }
+  bike.src = files[color];
 
-  if(color==="red"){
-    bike.style.filter = "hue-rotate(320deg) saturate(1.35)";
-    bike.style.boxShadow = "0 0 40px rgba(255,79,79,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(255,79,79,.18), rgba(0,0,0,0) 60%)";
-  }
+  const glow = {
+    green: "rgba(183,255,45,.25)",
+    blue: "rgba(72,184,255,.25)",
+    pink: "rgba(255,92,204,.25)",
+    red: "rgba(255,79,79,.25)",
+    yellow: "rgba(255,227,74,.25)",
+    orange: "rgba(255,154,47,.25)"
+  };
 
-  if(color==="yellow"){
-    bike.style.filter = "hue-rotate(40deg) saturate(1.3) brightness(1.1)";
-    bike.style.boxShadow = "0 0 40px rgba(255,227,74,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(255,227,74,.18), rgba(0,0,0,0) 60%)";
-  }
+  bike.style.filter = "none";
+  bike.style.boxShadow = `0 0 40px ${glow[color]}`;
+  wrap.style.background =
+    `radial-gradient(circle at center, ${glow[color]}, rgba(0,0,0,0) 60%)`;
 
-  if(color==="orange"){
-    bike.style.filter = "hue-rotate(20deg) saturate(1.35)";
-    bike.style.boxShadow = "0 0 40px rgba(255,154,47,.45)";
-    wrap.style.background = "radial-gradient(circle at center, rgba(255,154,47,.18), rgba(0,0,0,0) 60%)";
-  }
+}
 }
 </script>
 </body>
