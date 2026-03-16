@@ -218,11 +218,20 @@
     }
 
     .color-card{
-      background:#111;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:16px;
-      text-align:center;
+  background:#111;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:16px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+
+.color-card.active{
+  border:1px solid rgba(183,255,45,.55);
+  box-shadow:0 0 28px rgba(183,255,45,.22);
+  transform:translateY(-2px);
+}
     }
 
     .dot{
