@@ -746,6 +746,7 @@ function changeBike(color, el){
   }
 
   const bike = document.getElementById("bikeImage");
+  const flash = document.getElementById("bikeFlash");
   if (!bike) return;
 
   const files = {
@@ -757,9 +758,30 @@ function changeBike(color, el){
     orange: "orange-bike.PNG"
   };
 
-  if (files[color]) {
-    bike.src = files[color];
+  const flashGlow = {
+    green: "radial-gradient(circle at center, rgba(183,255,45,.45) 0%, rgba(183,255,45,.12) 45%, rgba(0,0,0,0) 75%)",
+    blue: "radial-gradient(circle at center, rgba(72,184,255,.45) 0%, rgba(72,184,255,.12) 45%, rgba(0,0,0,0) 75%)",
+    pink: "radial-gradient(circle at center, rgba(255,92,204,.45) 0%, rgba(255,92,204,.12) 45%, rgba(0,0,0,0) 75%)",
+    red: "radial-gradient(circle at center, rgba(255,79,79,.45) 0%, rgba(255,79,79,.12) 45%, rgba(0,0,0,0) 75%)",
+    yellow: "radial-gradient(circle at center, rgba(255,227,74,.45) 0%, rgba(255,227,74,.12) 45%, rgba(0,0,0,0) 75%)",
+    orange: "radial-gradient(circle at center, rgba(255,154,47,.45) 0%, rgba(255,154,47,.12) 45%, rgba(0,0,0,0) 75%)"
+  };
+
+  bike.classList.add('switching');
+
+  if (flash) {
+    flash.style.background = flashGlow[color] || flashGlow.green;
+    flash.classList.add('flash-on');
   }
+
+  setTimeout(()=>{
+    if (files[color]) bike.src = files[color];
+  }, 120);
+
+  setTimeout(()=>{
+    bike.classList.remove('switching');
+    if (flash) flash.classList.remove('flash-on');
+  }, 280);
 }
 </script>
 </body>
