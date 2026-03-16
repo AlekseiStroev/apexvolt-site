@@ -15,6 +15,28 @@
     #bikeImage{
 transition: all .45s ease;
 }
+.neon-title{
+font-size:48px;
+font-weight:700;
+background: linear-gradient(
+90deg,
+#7fff2d,
+#48b8ff,
+#ff5ccc,
+#ff4f4f,
+#ffe34a,
+#ff9a2f
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-size:300%;
+animation: neonMove 6s linear infinite;
+}
+
+@keyframes neonMove{
+0%{background-position:0%}
+100%{background-position:300%}
+}
 .color-card.active{
 border:1px solid #b7ff2d;
 box-shadow:0 0 15px rgba(183,255,45,.4);
