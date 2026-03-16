@@ -526,36 +526,43 @@ Neon Orange
 <script>
 function changeBike(color){
   const bike = document.getElementById('bikeImage');
-  if (!bike) return;
+  const wrap = document.getElementById('bikeWrap');
+  if (!bike || !wrap) return;
 
   if(color==="green"){
     bike.style.filter = "hue-rotate(0deg) saturate(1.1)";
     bike.style.boxShadow = "0 0 40px rgba(183,255,45,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(183,255,45,.12), rgba(0,0,0,0) 60%)";
   }
 
   if(color==="blue"){
     bike.style.filter = "hue-rotate(140deg) saturate(1.15)";
     bike.style.boxShadow = "0 0 40px rgba(72,184,255,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(72,184,255,.14), rgba(0,0,0,0) 60%)";
   }
 
   if(color==="pink"){
     bike.style.filter = "hue-rotate(260deg) saturate(1.2)";
     bike.style.boxShadow = "0 0 40px rgba(255,92,204,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(255,92,204,.14), rgba(0,0,0,0) 60%)";
   }
 
   if(color==="red"){
     bike.style.filter = "hue-rotate(310deg) saturate(1.15)";
     bike.style.boxShadow = "0 0 40px rgba(255,79,79,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(255,79,79,.14), rgba(0,0,0,0) 60%)";
   }
 
   if(color==="yellow"){
     bike.style.filter = "hue-rotate(25deg) saturate(1.15) brightness(1.03)";
     bike.style.boxShadow = "0 0 40px rgba(255,227,74,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(255,227,74,.14), rgba(0,0,0,0) 60%)";
   }
 
   if(color==="orange"){
     bike.style.filter = "hue-rotate(345deg) saturate(1.2)";
     bike.style.boxShadow = "0 0 40px rgba(255,154,47,.35)";
+    wrap.style.background = "radial-gradient(circle at center, rgba(255,154,47,.14), rgba(0,0,0,0) 60%)";
   }
 }
 </script>
