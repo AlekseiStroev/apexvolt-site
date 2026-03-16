@@ -542,13 +542,15 @@ Neon Orange
   </div>
 
 <script>
-function changeBike(color){
+function changeBike(color, el){
 
   document.querySelectorAll('.color-card').forEach(c=>c.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  if (el) el.classList.add('active');
 
   const bike = document.getElementById("bikeImage");
   const wrap = document.getElementById("bikeWrap");
+
+  if (!bike) return;
 
   const files = {
     green: "green-bike.png",
@@ -559,9 +561,18 @@ function changeBike(color){
     orange: "orange-bike.PNG"
   };
 
-  bike.src = files[color];
+  const glow = {
+    green: "rgba(183,255,45,.25)",
+    blue: "rgba(72,184,255,.25)",
+    pink: "rgba(255,92,204,.25)",
+    red: "rgba(255,79,79,.25)",
+    yellow: "rgba(255,227,74,.25)",
+    orange: "rgba(255,154,47,.25)"
+  };
 
-}
+  if (files[color]) {
+    bike.src = files[color];
+  }
 
   bike.style.filter = "none";
   bike.style.boxShadow = "0 0 40px " + (glow[color] || "rgba(183,255,45,.25)");
