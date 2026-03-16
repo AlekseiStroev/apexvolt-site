@@ -703,45 +703,29 @@ Neon Orange
 <script>
 function changeBike(color, el){
 
-  document.querySelectorAll('.color-card').forEach(c=>c.classList.remove('active'));
-  if (el) el.classList.add('active');
+  document.querySelectorAll('.color-card').forEach(c=>{
+    c.classList.remove('active');
+    c.style.border = "1px solid rgba(255,255,255,.08)";
+    c.style.boxShadow = "none";
+  });
+
   const cardGlow = {
-  green: "rgba(183,255,45,.45)",
-  blue: "rgba(72,184,255,.45)",
-  pink: "rgba(255,92,204,.45)",
-  red: "rgba(255,79,79,.45)",
-  yellow: "rgba(255,227,74,.45)",
-  orange: "rgba(255,154,47,.45)"
-};
+    green: "rgba(183,255,45,.45)",
+    blue: "rgba(72,184,255,.45)",
+    pink: "rgba(255,92,204,.45)",
+    red: "rgba(255,79,79,.45)",
+    yellow: "rgba(255,227,74,.45)",
+    orange: "rgba(255,154,47,.45)"
+  };
 
-document.querySelectorAll('.color-card').forEach(c=>{
-  c.style.border = "1px solid rgba(255,255,255,.08)";
-  c.style.boxShadow = "none";
-});
-
-if (el) {
-  el.style.border = "1px solid " + (cardGlow[color] || "rgba(183,255,45,.45)");
-  el.style.boxShadow = "0 0 20px " + (cardGlow[color] || "rgba(183,255,45,.45)");
-}
+  if (el) {
+    el.classList.add('active');
+    el.style.border = "1px solid " + (cardGlow[color] || "rgba(183,255,45,.45)");
+    el.style.boxShadow = "0 0 20px " + (cardGlow[color] || "rgba(183,255,45,.45)");
+  }
 
   const bike = document.getElementById("bikeImage");
-  const wrap = document.getElementById("bikeWrap");
-  const floor = document.getElementById("bikeFloorGlow");
-const floorGlow = {
-  green: "rgba(183,255,45,.38)",
-  blue: "rgba(72,184,255,.38)",
-  pink: "rgba(255,92,204,.38)",
-  red: "rgba(255,79,79,.38)",
-  yellow: "rgba(255,227,74,.38)",
-  orange: "rgba(255,154,47,.38)"
-};
-
-if (floor) {
-  const c = floorGlow[color] || "rgba(183,255,45,.38)";
-  floor.style.background =
-    "radial-gradient(ellipse at center, " + c + " 0%, " +
-    c.replace(".38", ".14") + " 38%, rgba(0,0,0,0) 75%)";
-}
+  if (!bike) return;
 
   const files = {
     green: "green-bike.png",
@@ -752,23 +736,8 @@ if (floor) {
     orange: "orange-bike.PNG"
   };
 
-  const glow = {
-    green: "rgba(183,255,45,.25)",
-    blue: "rgba(72,184,255,.25)",
-    pink: "rgba(255,92,204,.25)",
-    red: "rgba(255,79,79,.25)",
-    yellow: "rgba(255,227,74,.25)",
-    orange: "rgba(255,154,47,.25)"
-  };
-
   if (files[color]) {
     bike.src = files[color];
-  }
-
-  bike.style.filter = "none";
-  
-
-  
   }
 }
 </script>
