@@ -16,6 +16,46 @@
 transition: all .45s ease;
 }
 .neon-title{
+position:relative;
+font-size:52px;
+font-weight:800;
+text-align:center;
+letter-spacing:1px;
+}
+
+.neon-title span{
+background: linear-gradient(
+90deg,
+#7fff2d,
+#48b8ff,
+#ff5ccc,
+#ff4f4f,
+#ffe34a,
+#ff9a2f
+);
+
+background-size:250%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation: neonGradient 7s linear infinite;
+}
+
+/* мягкий свет за текстом */
+.neon-title::after{
+content:"Neon Series";
+position:absolute;
+left:0;
+right:0;
+top:0;
+
+color:#7fff2d;
+filter:blur(18px);
+opacity:.35;
+
+z-index:-1;
+}
+.neon-title{
 font-size:52px;
 font-weight:700;
 letter-spacing:1px;
