@@ -619,55 +619,93 @@
     }
 
     .color-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 14px;
-      margin-top: 30px;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
 
-    .color-card {
-      background: #111;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .25s ease;
-    }
+.color-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 122px;
+  padding: 22px 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  text-align: left;
+  cursor: pointer;
+  transition: all .28s ease;
+  overflow: hidden;
+}
 
-    .color-card:hover {
-      transform: translateY(-2px);
-    }
+.color-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at left center, rgba(183,255,45,0.08), transparent 45%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
 
-    .color-card.active {
-      border: 1px solid rgba(183,255,45,.55);
-      box-shadow: 0 0 28px rgba(183,255,45,.22);
-      transform: translateY(-2px);
-    }
-    .color-name {
-  font-size: 18px;
+.color-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(183,255,45,.22);
+  box-shadow: 0 12px 28px rgba(0,0,0,.32);
+}
+
+.color-card:hover::before {
+  opacity: 1;
+}
+
+.color-card.active {
+  border: 1px solid rgba(183,255,45,.55);
+  box-shadow:
+    0 0 28px rgba(183,255,45,.18),
+    inset 0 0 28px rgba(183,255,45,.03);
+  transform: translateY(-2px);
+}
+
+.color-card.active::before {
+  opacity: 1;
+}
+
+.dot {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,0.02),
+    0 0 20px rgba(255,255,255,0.08);
+}
+
+.color-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.color-name {
+  font-size: 20px;
+  line-height: 1.2;
   font-weight: 700;
   color: #ffffff;
-  margin-top: 6px;
-  line-height: 1.35;
 }
 
 .color-edition {
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   color: #b7ff2d;
-  margin-top: 6px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-shadow: 0 0 10px rgba(183,255,45,0.25);
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(183,255,45,0.22);
 }
-
-    .dot {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      margin: 0 auto 10px auto;
-      border: 2px solid rgba(255,255,255,.18);
-    }
 
     .dealer {
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
