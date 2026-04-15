@@ -1417,6 +1417,69 @@ body {
       0 0 48px rgba(183,255,45,0.45);
   }
 }
+/* ===== HEADER LAYOUT FIX ===== */
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Центрируем логотипный текст */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Иконка слева */
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* ОБЕРТКА ТЕКСТА — центр */
+.brand-text-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 1;
+}
+
+/* APEX ⚡ VOLT */
+.brand-text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #d8d8d8;
+  white-space: nowrap;
+}
+
+/* ⚡ */
+.brand-text .bolt {
+  color: #b7ff2d;
+  text-shadow: 0 0 8px rgba(183,255,45,0.8);
+}
+
+/* MOTORS */
+.brand-sub {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* Кнопка меню справа */
+.menu-toggle {
+  margin-left: auto;
+  z-index: 2;
+}
   </style>
 </head>
 <body>
