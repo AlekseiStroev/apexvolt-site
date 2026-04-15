@@ -1480,6 +1480,86 @@ body {
   margin-left: auto;
   z-index: 2;
 }
+/* ===== CHROME LOGO ===== */
+
+.brand-text {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  white-space: nowrap;
+
+  /* ХРОМ */
+  background: linear-gradient(
+    90deg,
+    #666 0%,
+    #aaa 15%,
+    #ffffff 35%,
+    #bbb 55%,
+    #eee 70%,
+    #777 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* ГЛУБИНА */
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.2),
+    0 2px 6px rgba(0,0,0,0.6);
+
+  position: relative;
+}
+
+/* БЛИК (движущийся эффект металла) */
+.brand-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+
+  animation: shine 3.5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 120%; }
+}
+
+/* ⚡ МОЛНИЯ */
+.brand-text .bolt {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #b7ff2d
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 6px rgba(183,255,45,0.8),
+    0 0 14px rgba(183,255,45,0.6),
+    0 0 22px rgba(183,255,45,0.4);
+}
+
+/* MOTORS чуть светлее и чище */
+.brand-sub {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #aaa;
+
+  text-shadow:
+    0 0 6px rgba(183,255,45,0.25);
+}
   </style>
 </head>
 <body>
