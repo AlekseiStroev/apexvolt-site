@@ -1225,6 +1225,198 @@ body {
 .mobile-menu a:last-child {
   border-bottom: none;
 }
+/* ===== APEXVOLT HEADER COMPLETE ===== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(183,255,45,0.15);
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #dcdcdc 35%,
+    #9a9a9a 70%,
+    #5a5a5a 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 #000,
+    0 2px 6px rgba(0,0,0,0.8),
+    0 0 12px rgba(255,255,255,0.08);
+}
+
+.brand-text .bolt {
+  color: #b7ff2d;
+  -webkit-text-fill-color: #b7ff2d;
+  display: inline-block;
+  text-shadow:
+    0 0 6px #b7ff2d,
+    0 0 12px #b7ff2d,
+    0 0 22px rgba(183,255,45,0.8),
+    0 0 40px rgba(183,255,45,0.5);
+  animation: boltPulse 2.2s ease-in-out infinite;
+}
+
+.brand-line {
+  width: 100%;
+  height: 1px;
+  margin: 5px 0 4px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #b7ff2d,
+    #b7ff2d,
+    transparent
+  );
+  box-shadow:
+    0 0 10px #b7ff2d,
+    0 0 20px rgba(183,255,45,0.6),
+    0 0 40px rgba(183,255,45,0.3);
+  animation: linePulse 2.8s ease-in-out infinite;
+}
+
+.brand-sub {
+  font-size: 9px;
+  letter-spacing: 5px;
+  color: #8a8f96;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 6px rgba(255,255,255,0.05);
+}
+
+.menu-toggle {
+  background: rgba(183,255,45,0.1);
+  border: 1px solid rgba(183,255,45,0.3);
+  color: #b7ff2d;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(183,255,45,0.25);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 78px;
+  left: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.96);
+  border: 1px solid rgba(183,255,45,0.18);
+  border-radius: 18px;
+  padding: 14px 16px;
+  z-index: 9999;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(16px);
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  color: #d8d8d8;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 12px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.section {
+  scroll-margin-top: 90px;
+}
+
+body {
+  padding-top: 80px;
+}
+
+@keyframes boltPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px #b7ff2d,
+      0 0 12px #b7ff2d,
+      0 0 22px rgba(183,255,45,0.8),
+      0 0 40px rgba(183,255,45,0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 8px #d7ff7a,
+      0 0 16px #b7ff2d,
+      0 0 28px rgba(183,255,45,0.95),
+      0 0 48px rgba(183,255,45,0.65);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes linePulse {
+  0%, 100% {
+    opacity: 0.9;
+    box-shadow:
+      0 0 10px #b7ff2d,
+      0 0 20px rgba(183,255,45,0.6),
+      0 0 40px rgba(183,255,45,0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 14px #d7ff7a,
+      0 0 28px rgba(183,255,45,0.8),
+      0 0 48px rgba(183,255,45,0.45);
+  }
+}
   </style>
 </head>
 <body>
