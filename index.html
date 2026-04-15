@@ -1663,5 +1663,20 @@ body {
     });
   }
 </script>
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  if (menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  } else {
+    menu.classList.add('active');
+  }
+}
+
+function closeMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  menu.classList.remove('active');
+}
+</script>
 </body>
 </html>
