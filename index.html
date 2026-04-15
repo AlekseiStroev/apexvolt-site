@@ -1486,32 +1486,33 @@ body {
 
 .brand-text {
   font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-weight: 900;
+  letter-spacing: 1px;
   white-space: nowrap;
-  position: relative;
-overflow: hidden;
 
-  /* ХРОМ */
+  position: relative;
+  overflow: hidden;
+
   background: linear-gradient(
     90deg,
-    #666 0%,
-    #aaa 15%,
-    #ffffff 35%,
-    #bbb 55%,
-    #eee 70%,
-    #777 100%
+    #444 0%,
+    #888 10%,
+    #ffffff 25%,
+    #bbb 40%,
+    #f5f5f5 50%,
+    #999 60%,
+    #ddd 75%,
+    #555 100%
   );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  /* ГЛУБИНА */
   text-shadow:
-    0 1px 0 rgba(255,255,255,0.2),
-    0 2px 6px rgba(0,0,0,0.6);
+    0 1px 0 rgba(255,255,255,0.15),
+    0 2px 8px rgba(0,0,0,0.7);
 
-  position: relative;
+  animation: chromeShift 6s ease-in-out infinite;
 }
 
 /* БЛИК (движущийся эффект металла) */
