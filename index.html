@@ -1585,6 +1585,35 @@ body {
   letter-spacing: 4px;
   color: #aaa;
 
+  position: relative;
+}
+
+/* линия под APEX VOLT */
+.brand-sub::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b7ff2d,
+    transparent
+  );
+
+  animation: energyLine 3s infinite;
+}
+
+@keyframes energyLine {
+  0% { opacity: 0.2; transform: translateX(-50%) scaleX(0.7); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+  100% { opacity: 0.2; transform: translateX(-50%) scaleX(0.7); }
+}
+
   text-shadow:
     0 0 6px rgba(183,255,45,0.25);
 }
