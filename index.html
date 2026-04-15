@@ -1879,5 +1879,31 @@ function closeMobileMenu() {
   menu.classList.remove('active');
 }
 </script>
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  if (!menu) return;
+  menu.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  if (!menu) return;
+  menu.classList.remove('active');
+}
+
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobileMenu');
+  var button = document.getElementById('menuToggle');
+  if (!menu || !button) return;
+
+  var clickedMenu = menu.contains(e.target);
+  var clickedButton = button.contains(e.target);
+
+  if (!clickedMenu && !clickedButton) {
+    menu.classList.remove('active');
+  }
+});
+</script>
 </body>
 </html>
