@@ -1517,18 +1517,21 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: -50%;
-  width: 50%;
+  left: -40%;
+  width: 40%; /* было 50% */
   height: 100%;
 
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.5),
     transparent
   );
 
   animation: shine 3.5s infinite;
+
+  pointer-events: none; /* важно */
+  z-index: 0;
 }
 
 @keyframes shine {
