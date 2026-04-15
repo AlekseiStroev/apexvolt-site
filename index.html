@@ -1593,6 +1593,24 @@ body {
   50% { filter: brightness(1.2); }
   100% { filter: brightness(0.9); }
 }
+@keyframes pulse {
+  0% {
+    text-shadow:
+      0 0 6px rgba(183,255,45,0.6),
+      0 0 12px rgba(183,255,45,0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(183,255,45,1),
+      0 0 28px rgba(183,255,45,0.9),
+      0 0 50px rgba(183,255,45,0.7);
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(183,255,45,0.6),
+      0 0 12px rgba(183,255,45,0.4);
+  }
+}
   </style>
 </head>
 <body>
