@@ -100,6 +100,6 @@
           stroke="#8dff42" stroke-opacity="0.48" stroke-width="2.2"/>
 
     <!-- MOTORS -->
-    <text class="motors" x="0" y="162">MOTORS</text>
+    <text class="motors" x="0" y="110">MOTORS</text>
   </g>
 </svg>
