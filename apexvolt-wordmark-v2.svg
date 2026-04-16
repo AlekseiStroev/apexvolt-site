@@ -92,7 +92,7 @@
     <text class="wordSoft" x="240" y="12">VOLT</text>
 
     <!-- Bolt -->
-    <g transform="translate(-14 -78)" filter="url(#greenGlow)">
+    <g transform="translate(-15 -78)" filter="url(#greenGlow)">
       <path d="M26 0 L10 54 L30 54 L4 136 L74 50 L46 50 L62 0 Z"
             fill="url(#boltFill)"/>
     </g>
