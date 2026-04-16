@@ -84,12 +84,12 @@
   <g transform="translate(600 110)" text-anchor="middle">
 
     <!-- APEX -->
-    <text class="word" x="-200" y="30">APEX</text>
-    <text class="wordSoft" x="-200" y="30">APEX</text>
+    <text class="word" x="-240" y="35">APEX</text>
+    <text class="wordSoft" x="-240" y="35">APEX</text>
 
     <!-- VOLT -->
-    <text class="word" x="240" y="30">VOLT</text>
-    <text class="wordSoft" x="240" y="30">VOLT</text>
+    <text class="word" x="240" y="35">VOLT</text>
+    <text class="wordSoft" x="240" y="35">VOLT</text>
 
     <!-- Bolt -->
     <g transform="translate(-16 -78)" filter="url(#greenGlow)">
