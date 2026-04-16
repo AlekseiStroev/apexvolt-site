@@ -88,11 +88,11 @@
     <text class="wordSoft" x="-240" y="35">APEX</text>
 
     <!-- VOLT -->
-    <text class="word" x="240" y="35">VOLT</text>
-    <text class="wordSoft" x="240" y="35">VOLT</text>
+    <text class="word" x="250" y="35">VOLT</text>
+    <text class="wordSoft" x="250" y="35">VOLT</text>
 
     <!-- Bolt -->
-    <g transform="translate(-16 -78)" filter="url(#greenGlow)">
+    <g transform="translate(-20 -78)" filter="url(#greenGlow)">
       <path d="M26 0 L10 54 L30 54 L4 136 L74 50 L46 50 L62 0 Z"
             fill="url(#boltFill)"/>
     </g>
