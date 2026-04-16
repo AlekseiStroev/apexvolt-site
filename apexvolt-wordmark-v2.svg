@@ -93,10 +93,10 @@
     </g>
 
     <!-- Side lines -->
-    <line x1="-430" y1="72" x2="-112" y2="72"
+    <line x1="-430" y1="72" x2="-120" y2="72"
           stroke="#8dff42" stroke-opacity="0.7" stroke-width="2.5"/>
 
-    <line x1="112" y1="72" x2="430" y2="72"
+    <line x1="120" y1="72" x2="430" y2="72"
           stroke="#8dff42" stroke-opacity="0.7" stroke-width="2.5"/>
 
     <!-- MOTORS -->
