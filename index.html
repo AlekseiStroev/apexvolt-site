@@ -2209,5 +2209,16 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.remove('active');
+}
+</script>
 </body>
 </html>
