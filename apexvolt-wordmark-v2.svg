@@ -1,32 +1,32 @@
 <svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Brighter chrome for Instagram/WebView -->
+    <!-- Stable bright chrome -->
     <linearGradient id="chromeMain" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#b8b8b8"/>
-      <stop offset="16%" stop-color="#ececec"/>
-      <stop offset="34%" stop-color="#ffffff"/>
-      <stop offset="50%" stop-color="#d6d6d6"/>
-      <stop offset="68%" stop-color="#fafafa"/>
-      <stop offset="84%" stop-color="#e4e4e4"/>
-      <stop offset="100%" stop-color="#b0b0b0"/>
+      <stop offset="0%" stop-color="#d8d8d8"/>
+      <stop offset="18%" stop-color="#f4f4f4"/>
+      <stop offset="36%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#ededed"/>
+      <stop offset="70%" stop-color="#ffffff"/>
+      <stop offset="86%" stop-color="#e6e6e6"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
     </linearGradient>
 
     <!-- Soft top shine -->
     <linearGradient id="chromeSoftTop" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.30"/>
-      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="42%" stop-color="#ffffff" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
 
     <!-- Bolt -->
     <linearGradient id="boltFill" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="20%" stop-color="#f7ffe8"/>
-      <stop offset="60%" stop-color="#c6ff47"/>
+      <stop offset="18%" stop-color="#f7ffe8"/>
+      <stop offset="58%" stop-color="#c6ff47"/>
       <stop offset="100%" stop-color="#7dff37"/>
     </linearGradient>
 
-    <!-- Green glow -->
+    <!-- Green glow only for bolt -->
     <filter id="greenGlow" x="-80%" y="-80%" width="260%" height="260%">
       <feGaussianBlur stdDeviation="4.2" result="blur"/>
       <feColorMatrix in="blur" type="matrix"
@@ -40,26 +40,22 @@
       </feMerge>
     </filter>
 
-    <!-- Very light text glow -->
-    <filter id="textGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1.4" result="blur"/>
-      <feOffset dx="0" dy="0" result="offsetBlur"/>
-      <feFlood flood-color="#f8fff0" flood-opacity="0.22" result="softColor"/>
-      <feComposite in="softColor" in2="offsetBlur" operator="in" result="softGlow"/>
-      <feMerge>
-        <feMergeNode in="softGlow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
     <style>
-      .word {
+      .wordBase {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 140px;
+        letter-spacing: 1px;
+        fill: #f5f7ef;
+      }
+
+      .wordChrome {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 800;
         font-size: 140px;
         letter-spacing: 1px;
         fill: url(#chromeMain);
-        filter: url(#textGlow);
+        opacity: 0.92;
       }
 
       .wordSoft {
@@ -68,7 +64,7 @@
         font-size: 140px;
         letter-spacing: 1px;
         fill: url(#chromeSoftTop);
-        opacity: 0.42;
+        opacity: 0.32;
       }
 
       .motors {
@@ -84,11 +80,13 @@
   <g transform="translate(600 110)" text-anchor="middle">
 
     <!-- APEX -->
-    <text class="word" x="-240" y="35">APEX</text>
+    <text class="wordBase" x="-240" y="35">APEX</text>
+    <text class="wordChrome" x="-240" y="35">APEX</text>
     <text class="wordSoft" x="-240" y="35">APEX</text>
 
     <!-- VOLT -->
-    <text class="word" x="250" y="35">VOLT</text>
+    <text class="wordBase" x="250" y="35">VOLT</text>
+    <text class="wordChrome" x="250" y="35">VOLT</text>
     <text class="wordSoft" x="250" y="35">VOLT</text>
 
     <!-- Bolt -->
@@ -99,10 +97,10 @@
 
     <!-- Side lines -->
     <line x1="-430" y1="84" x2="-120" y2="84"
-          stroke="#9bff4d" stroke-opacity="0.9" stroke-width="2.7"/>
+          stroke="#9bff4d" stroke-opacity="0.92" stroke-width="2.7"/>
 
     <line x1="120" y1="84" x2="430" y2="84"
-          stroke="#9bff4d" stroke-opacity="0.9" stroke-width="2.7"/>
+          stroke="#9bff4d" stroke-opacity="0.92" stroke-width="2.7"/>
 
     <!-- MOTORS -->
     <text class="motors" x="0" y="100">MOTORS</text>
