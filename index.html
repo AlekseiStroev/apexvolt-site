@@ -1273,22 +1273,29 @@ body {
 }
 
 .brand-text {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 3px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
   background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #dcdcdc 35%,
-    #9a9a9a 70%,
-    #5a5a5a 100%
+    90deg,
+    #2a2a2a 0%,
+    #999 15%,
+    #ffffff 35%,
+    #bbb 55%,
+    #eee 70%,
+    #666 100%
   );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   text-shadow:
-    0 1px 0 #000,
-    0 2px 6px rgba(0,0,0,0.8),
-    0 0 12px rgba(255,255,255,0.08);
+    0 1px 0 rgba(255,255,255,0.15),
+    0 3px 10px rgba(0,0,0,0.8);
+
+  position: relative;
 }
 .brand-text .bolt {
   margin: 0 -2px;
