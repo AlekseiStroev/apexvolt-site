@@ -1,66 +1,99 @@
-<svg width="600" height="120" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
-
+<svg width="680" height="140" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg" fill="none">
   <defs>
-    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#444"/>
-      <stop offset="20%" stop-color="#aaa"/>
-      <stop offset="40%" stop-color="#fff"/>
-      <stop offset="60%" stop-color="#bbb"/>
-      <stop offset="80%" stop-color="#eee"/>
-      <stop offset="100%" stop-color="#555"/>
+    <linearGradient id="chromeBase" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3f3f3f"/>
+      <stop offset="12%" stop-color="#8f8f8f"/>
+      <stop offset="24%" stop-color="#f8f8f8"/>
+      <stop offset="36%" stop-color="#8e8e8e"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="64%" stop-color="#8a8a8a"/>
+      <stop offset="82%" stop-color="#d7d7d7"/>
+      <stop offset="100%" stop-color="#474747"/>
     </linearGradient>
 
-    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="chromeTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="38%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+
+    <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="40%" stop-color="#b7ff2d"/>
-      <stop offset="80%" stop-color="#7cff3a"/>
+      <stop offset="22%" stop-color="#f4ffe2"/>
+      <stop offset="60%" stop-color="#b7ff2d"/>
+      <stop offset="100%" stop-color="#77ff33"/>
     </linearGradient>
 
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+    <filter id="greenGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4.5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0.95
+                0 0 0 0 0.15
+                0 0 0 0.9 0"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="2.2" stdDeviation="2.1" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+
+    <style>
+      .word {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 50px;
+        letter-spacing: 1px;
+        fill: url(#chromeBase);
+        filter: url(#shadow);
+      }
+      .wordHighlight {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 50px;
+        letter-spacing: 1px;
+        fill: url(#chromeTop);
+        opacity: 0.55;
+      }
+      .motors {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 11px;
+        fill: #c8c8c8;
+      }
+    </style>
   </defs>
 
   <!-- APEX -->
-  <text x="40" y="58"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="44"
-        font-weight="800"
-        fill="url(#chrome)">
-    APEX
-  </text>
-
-  <!-- ⚡ (центрирован между словами) -->
-  <polygon points="210,20 195,60 215,60 200,100 250,45 225,45 240,20"
-           fill="url(#boltGrad)"
-           filter="url(#glow)"/>
+  <text class="word" x="44" y="64">APEX</text>
+  <text class="wordHighlight" x="44" y="64">APEX</text>
 
   <!-- VOLT -->
-  <text x="280" y="58"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="44"
-        font-weight="800"
-        fill="url(#chrome)">
-    VOLT
-  </text>
+  <text class="word" x="370" y="64">VOLT</text>
+  <text class="wordHighlight" x="370" y="64">VOLT</text>
 
-  <!-- Линии -->
-  <line x1="40" y1="80" x2="560" y2="80"
-        stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <!-- thinner lightning -->
+  <g transform="translate(275 10)" filter="url(#greenGlow)">
+    <path
+      d="M28 0
+         L12 34
+         L26 34
+         L9 78
+         L52 30
+         L35 30
+         L47 0
+         Z"
+      fill="url(#boltGrad)"/>
+  </g>
+
+  <!-- thin green side lines -->
+  <line x1="46" y1="86" x2="235" y2="86" stroke="#8dff42" stroke-opacity="0.42" stroke-width="1.2"/>
+  <line x1="445" y1="86" x2="634" y2="86" stroke="#8dff42" stroke-opacity="0.42" stroke-width="1.2"/>
 
   <!-- MOTORS -->
-  <text x="300" y="105"
-        text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="14"
-        letter-spacing="6"
-        fill="#b7ff2d"
-        filter="url(#glow)">
-    MOTORS
-  </text>
-
+  <text class="motors" x="340" y="110" text-anchor="middle">MOTORS</text>
 </svg>
