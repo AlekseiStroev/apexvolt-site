@@ -74,8 +74,8 @@
   <g transform="translate(500 92)" text-anchor="middle">
 
     <!-- APEX -->
-    <text class="word" x="-175" y="0">APEX</text>
-    <text class="wordHighlight" x="-175" y="0">APEX</text>
+    <text class="word" x="-155" y="0">APEX</text>
+<text class="wordHighlight" x="-155" y="0">APEX</text>
 
     <!-- VOLT -->
     <text class="word" x="175" y="0">VOLT</text>
