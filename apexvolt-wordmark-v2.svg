@@ -94,10 +94,10 @@
 
     <!-- Side lines -->
     <line x1="-430" y1="72" x2="-112" y2="72"
-          stroke="#8dff42" stroke-opacity="0.48" stroke-width="2.2"/>
+          stroke="#8dff42" stroke-opacity="0.7" stroke-width="2.5"/>
 
     <line x1="112" y1="72" x2="430" y2="72"
-          stroke="#8dff42" stroke-opacity="0.48" stroke-width="2.2"/>
+          stroke="#8dff42" stroke-opacity="0.7" stroke-width="2.5"/>
 
     <!-- MOTORS -->
     <text class="motors" x="0" y="100">MOTORS</text>
